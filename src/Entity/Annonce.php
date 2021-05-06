@@ -60,11 +60,11 @@ class Annonce
     private $fuel;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Garage::class, inversedBy="annonce")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity=Garage::class, inversedBy="annonces")
      */
     private $garage;
 
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -166,15 +166,17 @@ class Annonce
         return $this;
     }
 
-    public function getGarage(): Garage
+    public function getGarage(): ?Garage
     {
         return $this->garage;
     }
 
-    public function setGarage(Garage $garage): self
+    public function setGarage(?Garage $garage): self
     {
         $this->garage = $garage;
 
         return $this;
     }
+
+   
 }
